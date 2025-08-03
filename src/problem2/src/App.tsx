@@ -11,7 +11,7 @@ const App: React.FC = () => {
               <Icons.ArrowUpDown className="text-white" size={32} />
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-white mb-3 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold text-white mb-3 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
             Currency Swap
           </h1>
         </div>
