@@ -1,69 +1,173 @@
-# React + TypeScript + Vite
+# 🚀 Currency Swap App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application that allows users to swap (exchange) different cryptocurrencies with a beautiful interface and optimal user experience.
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Token Swap**: Exchange between different cryptocurrencies
+- **Real-time Exchange Rates**: Display conversion rates updated in real-time
+- **User-friendly Interface**: Responsive design with beautiful gradients
+- **Validation**: Error checking and clear notifications
+- **Loading States**: Display loading states during transactions
+- **Token Selector**: Choose tokens from available list
+- **Swap Direction**: Reverse swap direction with one click
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React 19 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS 4
+- **State Management**: React Hooks
+- **API**: Fetch API with external price feed
+- **Icons**: Custom icon components
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Installation and Setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### System Requirements
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (version 18 or higher)
+- npm or yarn
+
+### Install Dependencies
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run Development Server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+The application will run at `http://localhost:5173`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Build
+
+```bash
+npm run preview
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── Icons.tsx       # Icon components
+│   ├── NotificationToast.tsx  # Toast notifications
+│   ├── SwapForm.tsx    # Main swap form
+│   └── TokenSelector.tsx      # Token selection component
+├── hooks/              # Custom React hooks
+│   └── useTokens.ts    # Hook for fetching token prices
+├── services/           # API services
+│   └── api.ts         # Swap execution service
+├── types/              # TypeScript type definitions
+│   └── index.ts       # Interface definitions
+├── utils/              # Utility functions
+│   └── helpers.ts     # Helper functions
+├── App.tsx            # Main application component
+└── main.tsx           # Application entry point
+```
+
+## 🔧 Core Components
+
+### SwapForm Component
+
+Main component handling token swap logic:
+
+- Form state management
+- Exchange rate calculation
+- Validation handling
+- Swap transaction execution
+
+### TokenSelector Component
+
+Component for token selection:
+
+- Dropdown to select tokens
+- Input for amount entry
+- Display token information (currency, price)
+
+### useTokens Hook
+
+Custom hook for fetching token data:
+
+- Retrieve token list from API
+- Handle loading and error states
+- Filter and sort tokens
+
+### ApiService
+
+Service for executing swaps:
+
+- Simulate API calls
+- Return transaction results
+- Handle timeouts
+
+## 🎨 User Interface
+
+The application uses modern design with:
+
+- Gradient background from purple to blue
+- Card layout with shadows and border radius
+- Responsive design for mobile and desktop
+- Smooth animations and transitions
+- Loading spinners and progress indicators
+
+## 📊 API Integration
+
+### Token Price Feed
+
+- **Endpoint**: `https://interview.switcheo.com/prices.json`
+- **Method**: GET
+- **Response**: Array of tokens with currency, price, and date
+
+### Swap Execution
+
+- **Method**: POST (simulated)
+- **Response**: Transaction result with success status and transaction ID
+
+## 🔒 Validation
+
+The application includes validation rules:
+
+- Check for valid token amounts
+- Ensure sufficient tokens for swap
+- Validate input format
+- Display clear error messages
+
+## 🚀 Deployment
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Deploy to Vercel
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Deploy to Netlify
+
+```bash
+npm run build
+# Upload dist folder to Netlify
+```
+
+**Note**: This is a demo application. Swap transactions are simulated and do not actually execute on the blockchain.
